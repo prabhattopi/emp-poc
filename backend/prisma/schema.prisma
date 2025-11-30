@@ -1,0 +1,23 @@
+// backend/prisma/schema.prisma
+generator client {
+  provider = "prisma-client"  // CHANGED: Use the new V7 TS generator
+  output   = "../src/generated" // ADDED: Generate source code into src
+}
+
+datasource db {
+  provider = "sqlite"
+  // Note: No URL here, it is in prisma.config.ts
+}
+
+model Employee {
+  id         String   @id @default(uuid())
+  name       String
+  age        Int
+  class      String?
+  subjects   String
+  attendance Float
+  createdAt  DateTime @default(now())
+  // PERFORMANCE: Add indexes on fields we filter/sort by
+  @@index([name])
+  @@index([attendance])
+}

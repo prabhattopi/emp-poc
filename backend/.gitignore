@@ -1,0 +1,28 @@
+
+/node_modules
+package-lock.json*
+yarn.lock*
+
+# Environment variables
+.env
+
+# Build output (TypeScript)
+dist
+build
+
+# Prisma / SQLite Database
+# Don't push your local database file!
+*.db
+*.db-journal
+migrations_lock.toml
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+access.log
+error.log
+
+# System
+.DS_Store
+Thumbs.db
